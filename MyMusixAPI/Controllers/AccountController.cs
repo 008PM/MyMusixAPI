@@ -5,33 +5,63 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
+using MyMusixAPI.Service.Domain.Models;
+using MyMusixApi.Service.Domain.DTO;
 
 namespace MyMusixAPI.Controllers
 {
-    using MyMusixApi.Service.Domain.models;
+    using MyMusixApi.Service.Domain.Models;
 
     [Route("api/[controller]")]
     [ApiController]
+    
     public class AccountController : ControllerBase
     {
-
+        
+        [Route("AddUser")]
         [HttpPost]
+        
         public bool AddUser([FromBody] RegisterRequest userDetailsRequest)
         {
-            var a = userDetailsRequest;
-            return true;
-        }
 
-        public ActionResult<IEnumerable<string>> Get()
+            var RegistrationData= userDetailsRequest;
+
+            AccountManagement regobj = new AccountManagement();
+
+
+            return regobj.UserRegistration(RegistrationData);
+
+        }
+//-------------------------->>>User--->>Login<<<-----------------------
+        [Route("UserLogin")]
+        [HttpPost]
+
+        //------------------->>>To be changed soon<<-------------//
+        public bool UserLogin([FromBody] LoginRequest logindetails)
         {
-            return new string[] { "value1", "value2" };
+
+            var loginData = logindetails;
+
+            AccountManagement logobj = new AccountManagement();
+
+
+            return logobj.UserLogging(loginData);
+
         }
+        //-------------------------->>>User--->>Details<<<-----------------------
+       
+        [HttpGet]
+        [Route("GetUserDetails/{email}")]
+        public UserAccount GetUserDetails(string email)
+        {
+            AccountManagement logobj1 = new AccountManagement();
 
+            return logobj1.GetuserDetails(email);
+        }
     }
-
-
-    //C:\Users\Prashob.M\AppData\Local\Microsoft\Microsoft SQL Server Local DB\Instances\MSSQLLocalDB
-    //Steps to add connection:
-    //1>From view use server explorer and creatre new connection use MS SQL
-    //2>then select (localdb)\MSSQLLocalDB  as db and file type.
 }
+
+//C:\Users\Prashob.M\AppData\Local\Microsoft\Microsoft SQL Server Local DB\Instances\MSSQLLocalDB
+//Steps to add connection:
+//1>From view use server explorer and creatre new connection use MS SQL
+//2>then select (localdb)\MSSQLLocalDB  as db and file type.

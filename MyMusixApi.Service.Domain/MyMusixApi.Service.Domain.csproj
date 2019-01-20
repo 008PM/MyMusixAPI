@@ -6,6 +6,10 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Collection.LinqToSQL" Version="5.0.0" />
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
+    <PackageReference Include="EntityFramework.SqlServerCompact" Version="6.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
     <PackageReference Include="MySql.Data" Version="8.0.13" />
     <PackageReference Include="System.Linq" Version="4.3.0" />
     <PackageReference Include="Z.LinqToSql.Plus" Version="1.0.9" />

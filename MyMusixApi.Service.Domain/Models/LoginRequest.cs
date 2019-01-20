@@ -4,11 +4,8 @@ using System.Text;
 
 namespace MyMusixAPI.Service.Domain.Models
 {
-    public class RegisterRequest
+  public class LoginRequest
     {
-   
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
     }

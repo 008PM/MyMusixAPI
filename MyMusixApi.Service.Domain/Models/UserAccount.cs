@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MyMusixAPI.Service.Api.Models
+namespace MyMusixApi.Service.Domain.Models
 {
-    public partial class UserAccount
+    public class UserAccount
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }

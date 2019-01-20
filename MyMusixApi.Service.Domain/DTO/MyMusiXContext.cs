@@ -1,9 +1,14 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using MyMusixApi.Service.Domain.Models;
 
-namespace MyMusixAPI.Service.Api.Models
+namespace MyMusixAPI.Service.Api.DTO
 {
+    using MyMusixAPI.Service.Domain.Models;
+
     public partial class MyMusiXContext : DbContext
     {
         public MyMusiXContext()
@@ -52,8 +57,8 @@ namespace MyMusixAPI.Service.Api.Models
             });
 
             modelBuilder.Entity<UserAccount>(entity =>
-            {
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                {
+                    entity.HasKey(e => e.Id);
 
                 entity.Property(e => e.Email)
                     .IsRequired()
