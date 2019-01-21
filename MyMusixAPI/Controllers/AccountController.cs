@@ -58,7 +58,16 @@ namespace MyMusixAPI.Controllers
 
             return logobj1.GetuserDetails(email);
         }
-    }
+
+        //--------------->>>Edit User--------------->>
+        [HttpPut]
+        [Route("/EditUser")]
+        public bool EditUser([FromBody] UserAccount user)
+        {
+            AccountManagement logobj2 = new AccountManagement();
+            return logobj2.UpdateUser(user);
+        }
+    }    
 }
 
 //C:\Users\Prashob.M\AppData\Local\Microsoft\Microsoft SQL Server Local DB\Instances\MSSQLLocalDB
